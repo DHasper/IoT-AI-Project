@@ -3,8 +3,8 @@ package connectfourgame.strategies;
 import java.util.ArrayList;
 import java.util.Random;
 
-import connectfourgame.ConnectFourBoardLogic;
-import connectfourgame.ConnectFourGameLogic;
+import connectfourgame.ConnectFourBoard;
+import connectfourgame.ConnectFourGame;
 import gameframework.GameBoardLogic;
 import gameframework.aistrategies.MinimaxStrategy;
 
@@ -31,7 +31,7 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
             bestMoveEval = 1000;
         }
 
-        ConnectFourGameLogic logic = new ConnectFourGameLogic();
+        ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
         ArrayList<Integer> moves = logic.getMoves(player);
 
@@ -40,9 +40,9 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
         }
 
         for(int move : moves){
-            ConnectFourBoardLogic tempBoard = new ConnectFourBoardLogic();
+            ConnectFourBoard tempBoard = new ConnectFourBoard();
             tempBoard.setBoard(board.getBoard());
-            ConnectFourGameLogic tempLogic = new ConnectFourGameLogic();
+            ConnectFourGame tempLogic = new ConnectFourGame();
             tempLogic.setBoard(tempBoard);
             tempLogic.doMove(move, player);
             double moveEval = miniMax(!isMax, DEPTH, tempBoard);
@@ -68,7 +68,7 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
             player = 2;
         }
 
-        ConnectFourGameLogic logic = new ConnectFourGameLogic();
+        ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
 
         if(depth == 0 || logic.gameOver() != 0){
@@ -78,9 +78,9 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
         ArrayList<Integer> moves = logic.getMoves(player);
         
         for(int move : moves){
-            ConnectFourBoardLogic tempBoard = new ConnectFourBoardLogic();
+            ConnectFourBoard tempBoard = new ConnectFourBoard();
             tempBoard.setBoard(board.getBoard());
-            ConnectFourGameLogic tempLogic = new ConnectFourGameLogic();
+            ConnectFourGame tempLogic = new ConnectFourGame();
             tempLogic.setBoard(tempBoard);
             tempLogic.doMove(move, player);
             if(isMax){
@@ -102,7 +102,7 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
     }
 
     private double evaluate(GameBoardLogic board, int depth){
-        ConnectFourGameLogic logic = new ConnectFourGameLogic();
+        ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
 
 

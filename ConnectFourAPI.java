@@ -5,8 +5,8 @@ import java.util.Random;
 
 import com.sun.net.httpserver.HttpServer;
 
-import connectfourgame.ConnectFourBoardLogic;
-import connectfourgame.ConnectFourGameLogic;
+import connectfourgame.ConnectFourBoard;
+import connectfourgame.ConnectFourGame;
 import connectfourgame.strategies.ConnectFourMinimaxStrategyMulti;
 
 public class ConnectFourAPI {
@@ -49,8 +49,8 @@ public class ConnectFourAPI {
             Thread.sleep(millis);
 
             ConnectFourMinimaxStrategyMulti ai = new ConnectFourMinimaxStrategyMulti();
-            ConnectFourBoardLogic board = new ConnectFourBoardLogic();
-            ConnectFourGameLogic logic = new ConnectFourGameLogic();
+            ConnectFourBoard board = new ConnectFourBoard();
+            ConnectFourGame logic = new ConnectFourGame();
             logic.setBoard(board);
 
             int i = 0;

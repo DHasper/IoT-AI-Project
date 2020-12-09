@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
-import connectfourgame.ConnectFourBoardLogic;
-import connectfourgame.ConnectFourGameLogic;
+import connectfourgame.ConnectFourBoard;
+import connectfourgame.ConnectFourGame;
 import gameframework.GameBoardLogic;
 import gameframework.aistrategies.MinimaxStrategy;
 
@@ -23,7 +23,7 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
     @Override
     public synchronized int getBestMove(GameBoardLogic board, int player) {
 
-        ConnectFourGameLogic logic = new ConnectFourGameLogic();
+        ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
         ArrayList<Integer> moves = logic.getMoves(player);
 
@@ -38,9 +38,9 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
         boolean isMax = player == 1;
 
         for (int move : moves) {
-            ConnectFourBoardLogic tempBoard = new ConnectFourBoardLogic();
+            ConnectFourBoard tempBoard = new ConnectFourBoard();
             tempBoard.setBoard(board.getBoard());
-            ConnectFourGameLogic tempLogic = new ConnectFourGameLogic();
+            ConnectFourGame tempLogic = new ConnectFourGame();
             tempLogic.setBoard(tempBoard);
             tempLogic.doMove(move, player);
 
@@ -124,7 +124,7 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
 
         private double miniMax(GameBoardLogic board, boolean isMax, int depth, double alpha, double beta){
             // Get game logic
-            ConnectFourGameLogic logic = new ConnectFourGameLogic();
+            ConnectFourGame logic = new ConnectFourGame();
             logic.setBoard(board);
     
             if(depth == 0 || logic.gameOver() != 0){
@@ -139,9 +139,9 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
             for(int move : ConnectFourMinimaxStrategyMulti.MOVE_ORDER){
             // for(int move : moves){
                 if(logic.isValid(move)){
-                    ConnectFourBoardLogic tempBoard = new ConnectFourBoardLogic();
+                    ConnectFourBoard tempBoard = new ConnectFourBoard();
                     tempBoard.setBoard(board.getBoard());
-                    ConnectFourGameLogic tempLogic = new ConnectFourGameLogic();
+                    ConnectFourGame tempLogic = new ConnectFourGame();
                     tempLogic.setBoard(tempBoard);
                     tempLogic.doMove(move, player);
 
@@ -162,7 +162,7 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
         }
     
         private double evaluate(GameBoardLogic board, int depth){
-            ConnectFourGameLogic logic = new ConnectFourGameLogic();
+            ConnectFourGame logic = new ConnectFourGame();
             logic.setBoard(board);
     
             ArrayList<Integer> discs = new ArrayList<>();

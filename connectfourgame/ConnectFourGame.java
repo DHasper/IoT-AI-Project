@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import gameframework.GameLogic;
 
-public class ConnectFourGameLogic extends GameLogic {
+public class ConnectFourGame extends GameLogic {
 
     /**
      * Constructor for ConnectFourGameLogic that sets a default board.
      */
-    public ConnectFourGameLogic() {
-        ConnectFourBoardLogic connectFourBoardLogic = new ConnectFourBoardLogic();
+    public ConnectFourGame() {
+        ConnectFourBoard connectFourBoardLogic = new ConnectFourBoard();
         setBoard(connectFourBoardLogic);
     }
 

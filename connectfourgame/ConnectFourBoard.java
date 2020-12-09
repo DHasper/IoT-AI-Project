@@ -5,7 +5,7 @@ import gameframework.GameBoardLogic;
 /**
  * This class implements the game board logic for the game Connect Four.
  */
-public class ConnectFourBoardLogic extends GameBoardLogic {
+public class ConnectFourBoard extends GameBoardLogic {
 
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";

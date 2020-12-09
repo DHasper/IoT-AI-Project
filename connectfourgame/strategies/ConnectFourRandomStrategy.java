@@ -3,7 +3,7 @@ package connectfourgame.strategies;
 import java.util.ArrayList;
 import java.util.Random;
 
-import connectfourgame.ConnectFourGameLogic;
+import connectfourgame.ConnectFourGame;
 import gameframework.GameBoardLogic;
 
 /**
@@ -14,7 +14,7 @@ public class ConnectFourRandomStrategy {
     Random random = new Random();
 
     public int getBestMove(GameBoardLogic board, int player) {
-        ConnectFourGameLogic logic = new ConnectFourGameLogic();
+        ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
         ArrayList<Integer> moves = logic.getMoves(player);
 

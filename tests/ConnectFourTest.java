@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
-import connectfourgame.ConnectFourBoardLogic;
-import connectfourgame.ConnectFourGameLogic;
+import connectfourgame.ConnectFourBoard;
+import connectfourgame.ConnectFourGame;
 import connectfourgame.strategies.ConnectFourMinimaxStrategy;
 import connectfourgame.strategies.ConnectFourMinimaxStrategyMulti;
 import connectfourgame.strategies.ConnectFourMinimaxStrategyTest;
@@ -16,8 +16,8 @@ import connectfourgame.strategies.ConnectFourSimpleStrategy;
 
 public class ConnectFourTest {
 
-    private ConnectFourBoardLogic board;
-    private ConnectFourGameLogic logic;
+    private ConnectFourBoard board;
+    private ConnectFourGame logic;
     private Random random;
 
     public static void main(String[] args) throws IOException {
@@ -31,8 +31,8 @@ public class ConnectFourTest {
     public ConnectFourTest() {
         this.random = new Random();
 
-        this.board = new ConnectFourBoardLogic();
-        this.logic = new ConnectFourGameLogic();
+        this.board = new ConnectFourBoard();
+        this.logic = new ConnectFourGame();
         logic.setBoard(board);
     }
 

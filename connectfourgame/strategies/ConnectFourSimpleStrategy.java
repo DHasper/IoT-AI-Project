@@ -3,8 +3,8 @@ package connectfourgame.strategies;
 import java.util.ArrayList;
 import java.util.Random;
 
-import connectfourgame.ConnectFourBoardLogic;
-import connectfourgame.ConnectFourGameLogic;
+import connectfourgame.ConnectFourBoard;
+import connectfourgame.ConnectFourGame;
 import gameframework.GameBoardLogic;
 import gameframework.aistrategies.MinimaxStrategy;
 
@@ -19,16 +19,16 @@ public class ConnectFourSimpleStrategy extends MinimaxStrategy {
 
     @Override
     public int getBestMove(GameBoardLogic board, int player) {
-        ConnectFourGameLogic logic = new ConnectFourGameLogic();
+        ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
         
         ArrayList<Integer> moves = logic.getMoves(player);
 
         for(int move : moves){
             // Do move for AI
-            ConnectFourBoardLogic tempBoard = new ConnectFourBoardLogic();
+            ConnectFourBoard tempBoard = new ConnectFourBoard();
             tempBoard.setBoard(board.getBoard());
-            ConnectFourGameLogic tempLogic = new ConnectFourGameLogic();
+            ConnectFourGame tempLogic = new ConnectFourGame();
             tempLogic.setBoard(tempBoard);
             tempLogic.doMove(move, player);
 
@@ -40,9 +40,9 @@ public class ConnectFourSimpleStrategy extends MinimaxStrategy {
 
         for(int move : moves){
             // Do move for opponent
-            ConnectFourBoardLogic tempBoard = new ConnectFourBoardLogic();
+            ConnectFourBoard tempBoard = new ConnectFourBoard();
             tempBoard.setBoard(board.getBoard());
-            ConnectFourGameLogic tempLogic = new ConnectFourGameLogic();
+            ConnectFourGame tempLogic = new ConnectFourGame();
             tempLogic.setBoard(tempBoard);
             tempLogic.doMove(move, 3 - player);
 
