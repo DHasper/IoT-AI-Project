@@ -14,7 +14,7 @@ public class ConnectFourAPI {
     private Random random = new Random();
 
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
         // Endpoint for getting move using connect four AI
         server.createContext("/getmove", (req -> {

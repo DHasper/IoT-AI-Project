@@ -23,8 +23,8 @@ public class ConnectFourTest {
     public static void main(String[] args) throws IOException {
         ConnectFourTest test = new ConnectFourTest();
         // test.testMoves();
-        // test.testAIvAI();
-        test.testAIvPlayer();
+        test.testAIvAI();
+        // test.testAIvPlayer();
         // test.testPositions();
     }
 
@@ -138,7 +138,7 @@ public class ConnectFourTest {
         int draws = 0;
         int total = 0;
 
-        for(int games = 0; games < 5000; games++){
+        for(int games = 0; games < 1000; games++){
             int i = 0;
             while(logic.gameOver() == 0){
                 int player = (i % 2) + 1;
@@ -168,18 +168,22 @@ public class ConnectFourTest {
                     break;
                 case 2:
                     player2++;
-                    board.printBoard();
+                    // board.printBoard();
                     break;
                 case 3:
                     draws++;
-                    board.printBoard();
+                    // board.printBoard();
                     break;
             }
             // board.printBoard();
             total++;
             // System.out.println("Winner game " + total + " : " + logic.gameOver());
-            printStats(player1, player2, draws, startTime);
-            System.out.println(perfectAI.getPos());
+            
+            if(total % 50 == 0){
+                printStats(player1, player2, draws, startTime);
+            }
+            
+            // System.out.println(perfectAI.getPos());
             board.resetBoard();
             perfectAI.resetPos();
         }
@@ -189,6 +193,7 @@ public class ConnectFourTest {
     }
 
     private void printStats(int player1, int player2, int draws, long startTime){
+        System.out.println("Player 1: Minimax AI \n Player 2: Random AI");
         System.out.println("Finished playing " + (player1 + player2 + draws) + " games");
         System.out.println("Player 1 wins: " + player1);
         System.out.println("Player 2 wins: " + player2);

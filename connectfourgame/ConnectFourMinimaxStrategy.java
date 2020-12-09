@@ -114,7 +114,7 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
         // Check for every non empty pos if there is 3 in a row
         double combo = 0;
         for(int discPos : discs){
-            if(logic.isCombination(discPos, 3, false)){
+            if(logic.isCombination(discPos, 4, true)){
                 combo = board.getBoardPos(discPos) == 1 ? combo + 1 : combo - 1;
             }
         }
