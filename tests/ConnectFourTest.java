@@ -23,9 +23,10 @@ public class ConnectFourTest {
     public static void main(String[] args) throws IOException {
         ConnectFourTest test = new ConnectFourTest();
         // test.testMoves();
-        test.testAIvAI();
+        // test.testAIvAI();
         // test.testAIvPlayer();
         // test.testPositions();
+        test.testPlayervPlayer();
     }
 
     public ConnectFourTest() {
@@ -38,17 +39,17 @@ public class ConnectFourTest {
 
     private void testMoves(){
         board.printBoard();
-        System.out.println("available moves: " + logic.getMoves(1));
+        System.out.println("available moves: " + logic.getMoves());
 
         for (int i = 0; i < 42; i++) {
             int player = (i % 2) + 1;
-            ArrayList<Integer> moves = logic.getMoves(player);
+            ArrayList<Integer> moves = logic.getMoves();
             int move = moves.get(random.nextInt(moves.size()));
             logic.doMove(move, player);
         }
         board.printBoard();
         System.out.println(logic.gameOver());
-        System.out.println("available moves: " + logic.getMoves(1));
+        System.out.println("available moves: " + logic.getMoves());
     }
 
     private void testGame() throws IOException {
@@ -89,6 +90,38 @@ public class ConnectFourTest {
         board.printBoard();
 
         System.out.println("Player" + logic.gameOver() + " wins");
+    }
+
+    private void testPlayervPlayer() throws IOException {
+        // Houd bij welke ronde het is
+        int turn = 0;
+        // Ga door tot het spel voorbij is
+        while(logic.gameOver() == 0){
+            // Laat het spelbord zien
+            board.printBoard();
+
+            // Kijk welke speler op dit moment aan de beurt is
+            int player = (turn % 2) + 1;
+
+            // Prompt de gebruiker om een move te kiezen
+            System.out.print("Choose a move for player " + player + ":");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println(' ');
+            int move = Integer.parseInt(reader.readLine());
+
+            // Doe de gekozen zet
+            logic.doMove(move, player);
+            // Het is nu de volgende beurt
+            turn++;
+        }
+
+        // Laat zien wie gewonnen heeft
+        board.printBoard();
+        if(logic.gameOver() == 3){
+            System.out.println("The game ended in a draw");
+        } else {
+            System.out.println("Winner is player " + logic.gameOver());
+        }
     }
 
     private void testAIvPlayer() throws IOException {

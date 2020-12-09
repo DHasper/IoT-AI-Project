@@ -15,7 +15,7 @@ public class ConnectFourGame extends GameLogic {
     }
 
 	@Override
-	public ArrayList<Integer> getMoves(int player) {
+	public ArrayList<Integer> getMoves() {
         ArrayList<Integer> result = new ArrayList<>();
         
         for(int col = 0; col < 7; col++){
@@ -190,7 +190,7 @@ public class ConnectFourGame extends GameLogic {
 
 	@Override
 	public boolean isValid(int move, int player) {
-		return getMoves(player).contains(move);
+		return getMoves().contains(move);
     }
     
     public boolean midEmpty(){

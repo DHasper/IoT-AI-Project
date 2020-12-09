@@ -22,7 +22,7 @@ public class ConnectFourSimpleStrategy extends MinimaxStrategy {
         ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
         
-        ArrayList<Integer> moves = logic.getMoves(player);
+        ArrayList<Integer> moves = logic.getMoves();
 
         for(int move : moves){
             // Do move for AI

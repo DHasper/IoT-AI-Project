@@ -27,10 +27,9 @@ public abstract class GameLogic {
 
     /**
      * This method should check for all valid moves.
-     * @param player integer representing the player that should be checked for.
      * @return ArrayList with integers containing all positions of valid moves.
      */
-    public abstract ArrayList<Integer> getMoves(int player);
+    public abstract ArrayList<Integer> getMoves();
 
     /**
      * This method shold be used to make a move on the gameboard.

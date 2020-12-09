@@ -13,10 +13,10 @@ public class ConnectFourRandomStrategy {
 
     Random random = new Random();
 
-    public int getBestMove(GameBoardLogic board, int player) {
-        ConnectFourGame logic = new ConnectFourGame();
-        logic.setBoard(board);
-        ArrayList<Integer> moves = logic.getMoves(player);
+    public int getBestMove(GameBoardLogic board) {
+        ConnectFourGame game = new ConnectFourGame();
+        game.setBoard(board);
+        ArrayList<Integer> moves = game.getMoves();
 
         return moves.get(random.nextInt(moves.size()));
     }

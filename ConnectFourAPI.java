@@ -23,8 +23,8 @@ public class ConnectFourAPI {
                 String[] params = req.getRequestURI().getRawQuery().split("=");
                 String moveStr = params.length > 1 ? params[1] : "";
 
-                ConnectFourAPI API = new ConnectFourAPI();
-                String move = String.valueOf(API.getMove(moveStr));
+                ConnectFourAPI api = new ConnectFourAPI();
+                String move = String.valueOf(api.getMove(moveStr));
 
                 req.sendResponseHeaders(200, move.getBytes().length);
                 OutputStream out = req.getResponseBody();

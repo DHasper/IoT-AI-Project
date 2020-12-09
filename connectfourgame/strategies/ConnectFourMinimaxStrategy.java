@@ -33,7 +33,7 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
 
         ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
-        ArrayList<Integer> moves = logic.getMoves(player);
+        ArrayList<Integer> moves = logic.getMoves();
 
         if(logic.midEmpty()){
             return 3;
@@ -75,7 +75,7 @@ public class ConnectFourMinimaxStrategy extends MinimaxStrategy {
             return evaluate(board, depth);
         }
 
-        ArrayList<Integer> moves = logic.getMoves(player);
+        ArrayList<Integer> moves = logic.getMoves();
         
         for(int move : moves){
             ConnectFourBoard tempBoard = new ConnectFourBoard();

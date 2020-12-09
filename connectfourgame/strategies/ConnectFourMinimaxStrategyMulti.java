@@ -25,7 +25,7 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
 
         ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);
-        ArrayList<Integer> moves = logic.getMoves(player);
+        ArrayList<Integer> moves = logic.getMoves();
 
         if (logic.midEmpty()) {
             return 3;
