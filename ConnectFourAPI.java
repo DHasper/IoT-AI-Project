@@ -7,7 +7,7 @@ import com.sun.net.httpserver.HttpServer;
 
 import connectfourgame.ConnectFourBoardLogic;
 import connectfourgame.ConnectFourGameLogic;
-import connectfourgame.ConnectFourMinimaxStrategyMulti;
+import connectfourgame.strategies.ConnectFourMinimaxStrategyMulti;
 
 public class ConnectFourAPI {
 

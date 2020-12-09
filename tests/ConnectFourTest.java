@@ -8,11 +8,11 @@ import java.util.Random;
 
 import connectfourgame.ConnectFourBoardLogic;
 import connectfourgame.ConnectFourGameLogic;
-import connectfourgame.ConnectFourMinimaxStrategy;
-import connectfourgame.ConnectFourMinimaxStrategyMulti;
-import connectfourgame.ConnectFourMinimaxStrategyTest;
-import connectfourgame.ConnectFourRandomStrategy;
-import connectfourgame.ConnectFourSimpleStrategy;
+import connectfourgame.strategies.ConnectFourMinimaxStrategy;
+import connectfourgame.strategies.ConnectFourMinimaxStrategyMulti;
+import connectfourgame.strategies.ConnectFourMinimaxStrategyTest;
+import connectfourgame.strategies.ConnectFourRandomStrategy;
+import connectfourgame.strategies.ConnectFourSimpleStrategy;
 
 public class ConnectFourTest {
 

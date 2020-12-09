@@ -35,7 +35,7 @@ public class ConnectFourBoardLogic extends GameBoardLogic {
                 for(int i=0; i < 7; i++){
                     System.out.print(i + "  ");
                 }
-                System.out.println(" 1 = " + ANSI_RED + "red" + ANSI_RESET + ", 2 = " + ANSI_YELLOW + "yellow");
+                System.out.println(" ");
             }
             for(int column=0; column < 7; column++){
                 switch(getBoardPos(pos)){

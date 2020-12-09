@@ -1,10 +1,12 @@
-package connectfourgame;
+package connectfourgame.strategies;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
+import connectfourgame.ConnectFourBoardLogic;
+import connectfourgame.ConnectFourGameLogic;
 import gameframework.GameBoardLogic;
 import gameframework.aistrategies.MinimaxStrategy;
 

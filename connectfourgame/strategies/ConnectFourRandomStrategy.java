@@ -1,8 +1,9 @@
-package connectfourgame;
+package connectfourgame.strategies;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import connectfourgame.ConnectFourGameLogic;
 import gameframework.GameBoardLogic;
 
 /**
