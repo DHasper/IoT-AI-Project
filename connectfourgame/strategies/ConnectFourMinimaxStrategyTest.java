@@ -6,18 +6,15 @@ import java.util.Random;
 import connectfourgame.ConnectFourBoard;
 import connectfourgame.ConnectFourGame;
 import gameframework.GameBoardLogic;
-import gameframework.aistrategies.MinimaxStrategy;
-
 /**
  * Really simple AI that always chooses a move that wins
  */
-public class ConnectFourMinimaxStrategyTest extends MinimaxStrategy {
+public class ConnectFourMinimaxStrategyTest {
 
     Random random = new Random();
 
     private static final int DEPTH = 3;
 
-    @Override
     public int getBestMove(GameBoardLogic board, int player) {
 
         boolean isMax;

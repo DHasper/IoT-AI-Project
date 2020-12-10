@@ -8,26 +8,25 @@ import java.util.concurrent.ConcurrentHashMap;
 import connectfourgame.ConnectFourBoard;
 import connectfourgame.ConnectFourGame;
 import gameframework.GameBoardLogic;
-import gameframework.aistrategies.MinimaxStrategy;
 
 /**
  * Really simple AI that always chooses a move that wins
  */
-public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
+public class ConnectFourMinimaxStrategyMulti {
 
     Random random = new Random();
 
     private static final int DEPTH = 9;
     private static final int[] MOVE_ORDER = new int[] { 3, 2, 4, 1, 5, 0, 6 };
 
-    @Override
     public synchronized int getBestMove(GameBoardLogic board, int player) {
 
-        ConnectFourGame logic = new ConnectFourGame();
-        logic.setBoard(board);
-        ArrayList<Integer> moves = logic.getMoves();
+        ConnectFourGame game = new ConnectFourGame();
+        game.setBoard(board);
+        ArrayList<Integer> moves = game.getMoves();
 
-        if (logic.midEmpty()) {
+        // Always choose the middle position of the bottom column. when it's available
+        if (game.midEmpty()) {
             return 3;
         }
 
@@ -123,22 +122,18 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
         }
 
         private double miniMax(GameBoardLogic board, boolean isMax, int depth, double alpha, double beta){
-            // Get game logic
-            ConnectFourGame logic = new ConnectFourGame();
-            logic.setBoard(board);
+            ConnectFourGame game = new ConnectFourGame();
+            game.setBoard(board);
     
-            if(depth == 0 || logic.gameOver() != 0){
+            if(depth == 0 || game.gameOver() != 0){
                 return evaluate(board, depth);
             }
     
             double bestEval = isMax ? -1000 : 1000;
             int player = isMax ? 1 : 2;
-            // Get all valid moves
-            // ArrayList<Integer> moves = logic.getMoves(player);
 
             for(int move : ConnectFourMinimaxStrategyMulti.MOVE_ORDER){
-            // for(int move : moves){
-                if(logic.isValid(move)){
+                if(game.isValid(move)){
                     ConnectFourBoard tempBoard = new ConnectFourBoard();
                     tempBoard.setBoard(board.getBoard());
                     ConnectFourGame tempLogic = new ConnectFourGame();
@@ -165,6 +160,7 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
             ConnectFourGame logic = new ConnectFourGame();
             logic.setBoard(board);
     
+            // Get all the currently used positions
             ArrayList<Integer> discs = new ArrayList<>();
             for(int pos = 0; pos < board.getBoard().length; pos++){
                 if(board.getBoardPos(pos) != 0){
@@ -172,7 +168,7 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
                 }
             }
     
-            // Check for every non empty pos if there is 3 in a row
+            // Check for every non empty position if there is 3 in a row, with possibility for 4 in a row
             double combo = 0;
             for(int discPos : discs){
                 if(logic.isCombination(discPos, 4, true)){
@@ -181,9 +177,9 @@ public class ConnectFourMinimaxStrategyMulti extends MinimaxStrategy {
             }
             combo = combo * 0.5;
     
+            // Calculate score
             switch(logic.gameOver()){
                 case 1:
-                    // return (this.depth - depth + 1) + combo;
                     return (depth + 1) + combo;
                 case 2:
                     return (-depth - 1) + combo;

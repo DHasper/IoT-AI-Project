@@ -13,11 +13,10 @@ import gameframework.aistrategies.MinimaxStrategy;
  * chooses a move that won't cause the opponent to win in the next turn.
  * If it can't win or prevent a loss next turn, it chooses a random valid move.
  */
-public class ConnectFourSimpleStrategy extends MinimaxStrategy {
+public class ConnectFourSimpleStrategy {
 
     Random random = new Random();
 
-    @Override
     public int getBestMove(GameBoardLogic board, int player) {
         ConnectFourGame logic = new ConnectFourGame();
         logic.setBoard(board);

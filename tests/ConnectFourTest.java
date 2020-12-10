@@ -24,9 +24,9 @@ public class ConnectFourTest {
         ConnectFourTest test = new ConnectFourTest();
         // test.testMoves();
         // test.testAIvAI();
-        // test.testAIvPlayer();
+        test.testAIvPlayer();
         // test.testPositions();
-        test.testPlayervPlayer();
+        // test.testPlayervPlayer();
     }
 
     public ConnectFourTest() {
